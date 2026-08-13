@@ -5,9 +5,6 @@
       "name": "Mídia & Geral",
       "icon": "sliders",
       "buttons": [
-        { "id": "vol_up", "label": "Volume +", "icon": "volume-2", "color": "#2563eb", "actionType": "volume", "actionValue": "up" },
-        { "id": "vol_down", "label": "Volume -", "icon": "volume-1", "color": "#2563eb", "actionType": "volume", "actionValue": "down" },
-        { "id": "vol_mute", "label": "Mudo", "icon": "volume-x", "color": "#ef4444", "actionType": "volume", "actionValue": "mute" },
         { "id": "play", "label": "Play/Pause", "icon": "play", "color": "#10b981", "actionType": "media", "actionValue": "play" },
         { "id": "prev", "label": "Voltar", "icon": "skip-back", "color": "#4b5563", "actionType": "media", "actionValue": "prev" },
         { "id": "next", "label": "Avançar", "icon": "skip-forward", "color": "#4b5563", "actionType": "media", "actionValue": "next" },
@@ -40,6 +37,9 @@
       "name": "Music",
       "icon": "music",
       "buttons": [
+        { "id": "vol_up", "label": "Volume +", "icon": "volume-2", "color": "#2563eb", "actionType": "volume", "actionValue": "up" },
+        { "id": "vol_down", "label": "Volume -", "icon": "volume-1", "color": "#2563eb", "actionType": "volume", "actionValue": "down" },
+        { "id": "vol_mute", "label": "Mudo", "icon": "volume-x", "color": "#ef4444", "actionType": "volume", "actionValue": "mute" },
         { "id": "spotify_app", "label": "Spotify", "icon": "music-4", "color": "#1db954", "actionType": "cmd", "actionValue": "spotify" }
       ]
     },
