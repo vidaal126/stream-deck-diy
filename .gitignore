@@ -1,0 +1,7 @@
+node_modules/
+npm-debug.log*
+*.log
+.idea/
+
+# Build output copied here just for LAN download, regenerate via gradlew assembleDebug
+public/stream-deck.apk

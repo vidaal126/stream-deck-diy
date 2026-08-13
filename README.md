@@ -30,11 +30,45 @@ npm start
 ```
 
 ### 3. Acessar no Celular
-Abra o navegador de internet (Chrome, Safari, Firefox, etc.) no seu celular antigo, coloque-o na horizontal e digite o endereço de rede correspondente ao seu computador. 
+Tem duas formas de usar, escolha uma:
 
-O servidor identificou as seguintes URLs de acesso:
+**Opção A — Navegador (mais simples, funciona em qualquer celular)**
+Abra o navegador de internet (Chrome, Safari, Firefox, etc.), coloque o celular na horizontal e digite o endereço de rede correspondente ao seu computador.
+
+**Opção B — App nativo Android (tela cheia, sem barra do navegador)**
+Veja a seção [App Android](#-app-android) abaixo.
+
+O servidor identifica automaticamente as URLs de acesso no terminal ao iniciar:
 - **No Computador**: [http://localhost:3000](http://localhost:3000)
-- **No Celular**: **`http://<ip-do-seu-computador>:3000`** (ex: `http://192.168.1.100:3000`)
+- **No Celular**: **`http://<ip-do-seu-computador>:3000`** (ex: `http://192.168.1.100:3000` — o log do servidor mostra o IP real da sua rede)
+
+---
+
+## 📲 App Android
+
+Além de acessar pelo navegador, existe um app Android nativo em [`android-app/`](android-app/) — um wrapper WebView em tela cheia que carrega o mesmo servidor, sem precisar instalar nada na Play Store.
+
+### Gerar o APK
+```bash
+cd android-app
+./gradlew assembleDebug
+```
+O APK fica em `android-app/app/build/outputs/apk/debug/app-debug.apk`.
+
+### Instalar no celular
+Sem custo, sem Play Store — é só instalar direto (sideload):
+1. Copie o APK para `public/stream-deck.apk` (fica acessível em `http://<ip-do-pc>:3000/stream-deck.apk` enquanto o servidor estiver rodando).
+2. No celular (mesma rede Wi-Fi), abra essa URL no navegador e baixe o arquivo.
+3. Autorize "instalar apps de fontes desconhecidas" para esse arquivo quando o Android pedir.
+4. Abra o app instalado.
+
+Alternativa via cabo USB, com o celular em modo desenvolvedor/depuração USB:
+```bash
+adb install android-app/app/build/outputs/apk/debug/app-debug.apk
+```
+
+### Trocar o IP do servidor depois de instalado
+O app vem com um endereço de exemplo (`192.168.1.100:3000`) só de placeholder — na primeira vez, **toque e segure** em qualquer lugar da tela pra digitar o IP real do seu PC (o mesmo que aparece no log do servidor). O mesmo gesto serve pra trocar depois, caso o roteador reatribua outro IP por DHCP.
 
 ---
 
@@ -61,3 +95,15 @@ Este projeto usa a ferramenta `xdotool` para emular o teclado no Linux. Ela já 
 sudo apt install xdotool
 ```
 No Windows ou macOS, o servidor executa comandos de shell equivalentes normalmente.
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+stream-deck/
+├── server.js          # Servidor Express + WebSocket, executa as ações no PC
+├── config.json         # Perfis e botões (editável pelo app ou manualmente)
+├── public/              # Cliente web (HTML/CSS/JS) servido pelo Express
+└── android-app/        # App Android nativo (Kotlin + Jetpack Compose), wrapper WebView
+```
