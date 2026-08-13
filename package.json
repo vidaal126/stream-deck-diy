@@ -1,0 +1,15 @@
+{
+  "name": "stream-deck-diy",
+  "version": "1.0.0",
+  "description": "DIY Stream Deck utilizing a phone as a control panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.17.1",
+    "systeminformation": "^5.22.9"
+  }
+}

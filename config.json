@@ -1,0 +1,47 @@
+{
+  "profiles": [
+    {
+      "id": "media",
+      "name": "Mídia & Geral",
+      "icon": "sliders",
+      "buttons": [
+        { "id": "vol_up", "label": "Volume +", "icon": "volume-2", "color": "#2563eb", "actionType": "volume", "actionValue": "up" },
+        { "id": "vol_down", "label": "Volume -", "icon": "volume-1", "color": "#2563eb", "actionType": "volume", "actionValue": "down" },
+        { "id": "vol_mute", "label": "Mudo", "icon": "volume-x", "color": "#ef4444", "actionType": "volume", "actionValue": "mute" },
+        { "id": "play", "label": "Play/Pause", "icon": "play-pause", "color": "#10b981", "actionType": "media", "actionValue": "play" },
+        { "id": "prev", "label": "Voltar", "icon": "skip-back", "color": "#4b5563", "actionType": "media", "actionValue": "prev" },
+        { "id": "next", "label": "Avançar", "icon": "skip-forward", "color": "#4b5563", "actionType": "media", "actionValue": "next" },
+        { "id": "screenshot", "label": "Print", "icon": "camera", "color": "#8b5cf6", "actionType": "cmd", "actionValue": "gnome-screenshot" },
+        { "id": "lock", "label": "Bloquear PC", "icon": "lock", "color": "#f97316", "actionType": "keypress", "actionValue": "super+l" },
+        { "id": "show_desktop", "label": "Desktop", "icon": "monitor", "color": "#6366f1", "actionType": "keypress", "actionValue": "super+d" },
+        { "id": "calc", "label": "Calc", "icon": "calculator", "color": "#06b6d4", "actionType": "cmd", "actionValue": "gnome-calculator" }
+      ]
+    },
+    {
+      "id": "apps",
+      "name": "Atalhos & Web",
+      "icon": "layout-grid",
+      "buttons": [
+        { "id": "browser", "label": "Navegador", "icon": "chrome", "color": "#3b82f6", "actionType": "cmd", "actionValue": "xdg-open about:blank" },
+        { "id": "youtube", "label": "YouTube", "icon": "youtube", "color": "#ef4444", "actionType": "cmd", "actionValue": "xdg-open https://youtube.com" },
+        { "id": "github", "label": "GitHub", "icon": "github", "color": "#18181b", "actionType": "cmd", "actionValue": "xdg-open https://github.com" },
+        { "id": "chatgpt", "label": "ChatGPT", "icon": "message-square-text", "color": "#10b981", "actionType": "cmd", "actionValue": "xdg-open https://chatgpt.com" },
+        { "id": "whatsapp", "label": "WhatsApp", "icon": "message-circle-code", "color": "#22c55e", "actionType": "cmd", "actionValue": "xdg-open https://web.whatsapp.com" },
+        { "id": "vscode", "label": "VS Code", "icon": "code-xml", "color": "#0ea5e9", "actionType": "cmd", "actionValue": "code" },
+        { "id": "spotify", "label": "Spotify Web", "icon": "music-4", "color": "#22c55e", "actionType": "cmd", "actionValue": "xdg-open https://open.spotify.com" },
+        { "id": "search", "label": "Google", "icon": "search", "color": "#fbbf24", "actionType": "cmd", "actionValue": "xdg-open https://google.com" }
+      ]
+    },
+    {
+      "id": "dev",
+      "name": "Dev & Term",
+      "icon": "terminal",
+      "buttons": [
+        { "id": "term", "label": "Terminal", "icon": "terminal", "color": "#09090b", "actionType": "cmd", "actionValue": "x-terminal-emulator" },
+        { "id": "git_status", "label": "Git Status", "icon": "git-branch", "color": "#f97316", "actionType": "cmd", "actionValue": "x-terminal-emulator -e 'git status; read'" },
+        { "id": "npm_dev", "label": "npm dev", "icon": "play", "color": "#ef4444", "actionType": "cmd", "actionValue": "x-terminal-emulator -e 'npm run dev; read'" },
+        { "id": "vscode_project", "label": "Open Folder", "icon": "folder-open", "color": "#0ea5e9", "actionType": "cmd", "actionValue": "code ." }
+      ]
+    }
+  ]
+}

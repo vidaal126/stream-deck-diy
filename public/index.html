@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>DIY Stream Deck</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Fullscreen Container for Landscape view -->
+  <div class="deck-container">
+    
+    <!-- Topbar Header -->
+    <header class="topbar">
+      <div class="header-left">
+        <span class="logo">STREAM DECK <span class="badge">DIY</span></span>
+        <div id="status-indicator" class="status-indicator offline">
+          <span class="status-dot"></span>
+          <span class="status-text">Desconectado</span>
+        </div>
+      </div>
+
+      <!-- Real-time CPU/RAM Stats -->
+      <div class="stats-container">
+        <div class="stat-item" id="cpu-stat">
+          <span class="stat-label">CPU:</span>
+          <div class="stat-bar-bg">
+            <div class="stat-bar-fill" id="cpu-bar" style="width: 0%"></div>
+          </div>
+          <span class="stat-val" id="cpu-val">0%</span>
+        </div>
+        <div class="stat-item" id="ram-stat">
+          <span class="stat-label">RAM:</span>
+          <div class="stat-bar-bg">
+            <div class="stat-bar-fill" id="ram-bar" style="width: 0%"></div>
+          </div>
+          <span class="stat-val" id="ram-val">0%</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div id="clock" class="clock">12:00:00</div>
+        <button id="toggle-edit-mode" class="icon-btn btn-settings" title="Editar Layout">
+          <i data-lucide="edit-3"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <div class="deck-workspace">
+      <!-- Profiles/Tabs Navigation (Sidebar or Top on Mobile) -->
+      <nav class="profiles-nav" id="profiles-list">
+        <!-- Rendered dynamically -->
+      </nav>
+
+      <!-- Buttons Grid -->
+      <main class="grid-container">
+        <div class="buttons-grid" id="buttons-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </main>
+    </div>
+
+    <!-- Mode bar indicator (Visible when editing) -->
+    <div id="edit-banner" class="edit-banner hidden">
+      <span><i data-lucide="info" class="inline-icon"></i> Modo de Edição Ativo. Clique em qualquer botão para editá-lo.</span>
+      <button id="close-edit-mode" class="btn btn-sm btn-primary">Concluir</button>
+    </div>
+  </div>
+
+  <!-- Native HTML5 Dialog for Button Customization -->
+  <dialog id="edit-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Editar Botão</h3>
+        <button id="close-modal" class="close-btn">&times;</button>
+      </div>
+      <form id="edit-form" class="modal-body">
+        <input type="hidden" id="edit-btn-id">
+        <input type="hidden" id="edit-profile-id">
+
+        <div class="form-group">
+          <label for="btn-label">Texto do Botão</label>
+          <input type="text" id="btn-label" placeholder="Ex: Volume +" required autocomplete="off">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group half">
+            <label for="btn-icon">Ícone Lucide</label>
+            <select id="btn-icon">
+              <option value="volume-2">Volume 2</option>
+              <option value="volume-1">Volume 1</option>
+              <option value="volume-x">Volume Mudo</option>
+              <option value="play-pause">Play / Pause</option>
+              <option value="skip-forward">Avançar</option>
+              <option value="skip-back">Voltar</option>
+              <option value="camera">Câmera/Print</option>
+              <option value="lock">Cadeado</option>
+              <option value="monitor">Monitor/Desktop</option>
+              <option value="calculator">Calculadora</option>
+              <option value="chrome">Navegador</option>
+              <option value="youtube">YouTube</option>
+              <option value="github">GitHub</option>
+              <option value="message-square-text">ChatGPT</option>
+              <option value="message-circle-code">WhatsApp</option>
+              <option value="code-xml">VS Code</option>
+              <option value="music-4">Música</option>
+              <option value="search">Google</option>
+              <option value="terminal">Terminal</option>
+              <option value="git-branch">Git Branch</option>
+              <option value="play">Play</option>
+              <option value="folder-open">Pasta</option>
+              <option value="link">Link</option>
+              <option value="sliders">Ajustes</option>
+              <option value="power">Desligar</option>
+              <option value="sun">Brilho +</option>
+              <option value="moon">Brilho -</option>
+            </select>
+          </div>
+          <div class="form-group half">
+            <label for="btn-color">Cor de Fundo</label>
+            <div class="color-picker-container">
+              <input type="color" id="btn-color" value="#2563eb">
+              <div class="color-presets">
+                <span class="preset-color" style="background-color: #2563eb" data-color="#2563eb"></span>
+                <span class="preset-color" style="background-color: #ef4444" data-color="#ef4444"></span>
+                <span class="preset-color" style="background-color: #10b981" data-color="#10b981"></span>
+                <span class="preset-color" style="background-color: #f97316" data-color="#f97316"></span>
+                <span class="preset-color" style="background-color: #8b5cf6" data-color="#8b5cf6"></span>
+                <span class="preset-color" style="background-color: #18181b" data-color="#18181b"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="btn-action-type">Tipo de Ação</label>
+          <select id="btn-action-type">
+            <option value="keypress">Simular Tecla (Shortcuts)</option>
+            <option value="cmd">Executar Comando do Sistema</option>
+            <option value="volume">Volume (Padrão)</option>
+            <option value="media">Controle de Mídia (Padrão)</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="action-value-group">
+          <label for="btn-action-value" id="action-value-label">Tecla ou Comando</label>
+          <input type="text" id="btn-action-value" placeholder="Ex: ctrl+alt+t ou gnome-calculator" required autocomplete="off">
+          <small class="form-help" id="action-help-text">Insira a tecla ou comando que será enviado ao PC.</small>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="delete-btn" class="btn btn-danger">Excluir Botão</button>
+          <div class="modal-footer-right">
+            <button type="button" id="cancel-btn" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- JS Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
