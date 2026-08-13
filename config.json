@@ -33,6 +33,14 @@
       ]
     },
     {
+      "id": "music",
+      "name": "Music",
+      "icon": "music",
+      "buttons": [
+        { "id": "spotify_app", "label": "Spotify", "icon": "music-4", "color": "#1db954", "actionType": "cmd", "actionValue": "spotify" }
+      ]
+    },
+    {
       "id": "dev",
       "name": "Dev & Term",
       "icon": "terminal",
