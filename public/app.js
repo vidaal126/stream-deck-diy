@@ -1,5 +1,17 @@
 // DIY Stream Deck Client Logic
 
+// Some WebView engines fail to resolve `vh`/percentage full-height layouts on
+// <html>/<body> (a known WebView quirk) even though `window.innerHeight` stays
+// correct. Set the height explicitly in pixels as a robust fallback.
+function fixViewportHeight() {
+  const px = `${window.innerHeight}px`;
+  document.documentElement.style.height = px;
+  document.body.style.height = px;
+}
+fixViewportHeight();
+window.addEventListener('resize', fixViewportHeight);
+window.addEventListener('orientationchange', () => setTimeout(fixViewportHeight, 100));
+
 let socket;
 let currentProfileId = 'media';
 let configData = { profiles: [] };

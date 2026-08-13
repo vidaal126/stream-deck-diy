@@ -17,10 +17,10 @@ fun MainScreen(
     modifier = Modifier.fillMaxSize(),
     factory = { context ->
       WebView(context).apply {
+        // The page ships its own responsive viewport meta tag, so the legacy
+        // desktop-site flags (useWideViewPort/loadWithOverviewMode) are not needed.
         settings.javaScriptEnabled = true
         settings.domStorageEnabled = true
-        settings.loadWithOverviewMode = true
-        settings.useWideViewPort = true
         webViewClient = WebViewClient()
         loadUrl("http://10.0.2.2:3000")
       }
