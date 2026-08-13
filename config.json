@@ -8,7 +8,7 @@
         { "id": "vol_up", "label": "Volume +", "icon": "volume-2", "color": "#2563eb", "actionType": "volume", "actionValue": "up" },
         { "id": "vol_down", "label": "Volume -", "icon": "volume-1", "color": "#2563eb", "actionType": "volume", "actionValue": "down" },
         { "id": "vol_mute", "label": "Mudo", "icon": "volume-x", "color": "#ef4444", "actionType": "volume", "actionValue": "mute" },
-        { "id": "play", "label": "Play/Pause", "icon": "play-pause", "color": "#10b981", "actionType": "media", "actionValue": "play" },
+        { "id": "play", "label": "Play/Pause", "icon": "play", "color": "#10b981", "actionType": "media", "actionValue": "play" },
         { "id": "prev", "label": "Voltar", "icon": "skip-back", "color": "#4b5563", "actionType": "media", "actionValue": "prev" },
         { "id": "next", "label": "Avançar", "icon": "skip-forward", "color": "#4b5563", "actionType": "media", "actionValue": "next" },
         { "id": "screenshot", "label": "Print", "icon": "camera", "color": "#8b5cf6", "actionType": "cmd", "actionValue": "gnome-screenshot" },
@@ -29,7 +29,10 @@
         { "id": "whatsapp", "label": "WhatsApp", "icon": "message-circle-code", "color": "#22c55e", "actionType": "cmd", "actionValue": "xdg-open https://web.whatsapp.com" },
         { "id": "vscode", "label": "VS Code", "icon": "code-xml", "color": "#0ea5e9", "actionType": "cmd", "actionValue": "code" },
         { "id": "spotify", "label": "Spotify Web", "icon": "music-4", "color": "#22c55e", "actionType": "cmd", "actionValue": "xdg-open https://open.spotify.com" },
-        { "id": "search", "label": "Google", "icon": "search", "color": "#fbbf24", "actionType": "cmd", "actionValue": "xdg-open https://google.com" }
+        { "id": "search", "label": "Google", "icon": "search", "color": "#fbbf24", "actionType": "cmd", "actionValue": "xdg-open https://google.com" },
+        { "id": "discord", "label": "Discord", "icon": "message-circle", "color": "#5865f2", "actionType": "cmd", "actionValue": "discord" },
+        { "id": "brave", "label": "Brave", "icon": "shield", "color": "#fb542b", "actionType": "cmd", "actionValue": "brave-browser" },
+        { "id": "chrome_browser", "label": "Chrome", "icon": "globe", "color": "#4285f4", "actionType": "cmd", "actionValue": "google-chrome" }
       ]
     },
     {
@@ -48,7 +51,10 @@
         { "id": "term", "label": "Terminal", "icon": "terminal", "color": "#09090b", "actionType": "cmd", "actionValue": "x-terminal-emulator" },
         { "id": "git_status", "label": "Git Status", "icon": "git-branch", "color": "#f97316", "actionType": "cmd", "actionValue": "x-terminal-emulator -e 'git status; read'" },
         { "id": "npm_dev", "label": "npm dev", "icon": "play", "color": "#ef4444", "actionType": "cmd", "actionValue": "x-terminal-emulator -e 'npm run dev; read'" },
-        { "id": "vscode_project", "label": "Open Folder", "icon": "folder-open", "color": "#0ea5e9", "actionType": "cmd", "actionValue": "code ." }
+        { "id": "vscode_project", "label": "Open Folder", "icon": "folder-open", "color": "#0ea5e9", "actionType": "cmd", "actionValue": "code ." },
+        { "id": "postman", "label": "Postman", "icon": "send", "color": "#ff6c37", "actionType": "cmd", "actionValue": "flatpak run com.getpostman.Postman" },
+        { "id": "antigravity", "label": "Antigravity", "icon": "rocket", "color": "#14b8a6", "actionType": "cmd", "actionValue": "antigravity" },
+        { "id": "cursor", "label": "Cursor", "icon": "sparkles", "color": "#6366f1", "actionType": "cmd", "actionValue": "cursor" }
       ]
     }
   ]
